@@ -1,7 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
+from selenium import webdriver
+import time
+from darksky import get_new_url
 
-page = requests.get("https://darksky.net/forecast/29.0721,-82.193/us12/en")
+location = input("Please Enter a location: ")
+url = get_new_url(location)
+
+page = requests.get(url)
 soup = BeautifulSoup(page.content, 'html.parser')
 weather_status = soup.find(class_="summary swap").get_text()
 feels_like = soup.find(class_="feels-like-text").get_text()
