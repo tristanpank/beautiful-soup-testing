@@ -14,6 +14,7 @@ feels_like = soup.find(class_="feels-like-text").get_text()
 humidity = soup.find(class_="num swip humidity__value").get_text()
 uv_index = soup.find(class_="num uv__index__value").get_text()
 
+print(f"Dark Sky URL for {location}: {url}")
 print(f"General Forecast: {weather_status}")
 print(f"Feels Like: {feels_like}")    
 print(f"Humidity {humidity}%")
